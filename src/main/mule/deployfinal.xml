@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="3c1ee2f0-a2a5-4260-9d3c-3853061a2fc4" >
+		<http:listener-connection host="0.0.0.0" port="${http.port}" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="3afb4841-17fe-4c8b-a87b-7d6c8add7c44" file="myconfig.properties" />
+	<flow name="deployfinalFlow" doc:id="928ade75-ab06-4551-a9b8-cd2af4ca9cf0" >
+		<http:listener doc:name="Listener" doc:id="795bb11c-754c-4399-8506-782b7e266f96" config-ref="HTTP_Listener_config" path="/finalflow"/>
+		<set-payload value="final flow" doc:name="Set Payload" doc:id="8e57e962-1172-4ec3-8407-f5e6b423b0e2" />
+	</flow>
+</mule>
